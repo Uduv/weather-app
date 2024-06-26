@@ -32,13 +32,31 @@ async function fetchWeatherData() {
       const cityUrl = encodeURIComponent(city);
       const response = await fetch(`https://api.tomorrow.io/v4/weather/realtime?location=${cityUrl}&apikey=${API_KEY}`);
       const data = await response.json();
-
+      console.log(data);
       if (data && data.data) {
         const weatherData = {
-          city: city,
-          temperature: data.data.temperature ? data.data.temperature.value : 'N/A',
-          description: data.data.weather_code ? data.data.weather_code.value : 'N/A',
-          date: new Date()
+          city: data.location.name ? data.location.name : 'Unknown City',
+          temperature: data.data.values.temperature ? data.data.values.temperature : 'N/A',
+          temperatureApparent: data.data.values.temperatureApparent ? data.data.values.temperatureApparent : 'N/A',
+          humidity: data.data.values.humidity ? data.data.values.humidity : 'N/A',
+          cloudBase: data.data.values.cloudBase ? data.data.values.cloudBase : 'N/A',
+          cloudCeiling: data.data.values.cloudCeiling ? data.data.values.cloudCeiling : 'N/A',
+          cloudCover: data.data.values.cloudCover ? data.data.values.cloudCover : 'N/A',
+          dewPoint: data.data.values.dewPoint ? data.data.values.dewPoint : 'N/A',
+          freezingRainIntensity: data.data.values.freezingRainIntensity ? data.data.values.freezingRainIntensity : 'N/A',
+          precipitationProbability: data.data.values.precipitationProbability ? data.data.values.precipitationProbability : 'N/A',
+          pressureSurfaceLevel: data.data.values.pressureSurfaceLevel ? data.data.values.pressureSurfaceLevel : 'N/A',
+          rainIntensity: data.data.values.rainIntensity ? data.data.values.rainIntensity : 'N/A',
+          sleetIntensity: data.data.values.sleetIntensity ? data.data.values.sleetIntensity : 'N/A',
+          snowIntensity: data.data.values.snowIntensity ? data.data.values.snowIntensity : 'N/A',
+          uvHealthConcern: data.data.values.uvHealthConcern ? data.data.values.uvHealthConcern : 'N/A',
+          uvIndex: data.data.values.uvIndex ? data.data.values.uvIndex : 'N/A',
+          visibility: data.data.values.visibility ? data.data.values.visibility : 'N/A',
+          weatherCode: data.data.values.weatherCode ? data.data.values.weatherCode : 'N/A',
+          windDirection: data.data.values.windDirection ? data.data.values.windDirection : 'N/A',
+          windGust: data.data.values.windGust ? data.data.values.windGust : 'N/A',
+          windSpeed: data.data.values.windSpeed ? data.data.values.windSpeed : 'N/A',
+          date: new Date(data.data.time) // Convert 'time' to a Date object
         };
         await weatherCollection.insertOne(weatherData);
       } else {
