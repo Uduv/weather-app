@@ -1,0 +1,14 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "scripts": {
+    "start": "npm run start:backend & npm run start:frontend",
+    "start:backend": "npm --prefix packages/backend start",
+    "start:frontend": "npm --prefix packages/frontend start"
+  }
+}
