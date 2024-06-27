@@ -1,5 +1,6 @@
 {
     "name": "weather_app",
     "provider_region": "aws-eu-central-1",
-    "deployment_model": "LOCAL"
+    "deployment_model": "LOCAL",
+    "environment": "development"
 }
