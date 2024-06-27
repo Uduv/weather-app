@@ -16,8 +16,8 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-const CITIES = ["Tokyo"]; // Only fetch weather data for Tokyo
-// const CITIES = ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico City", "Cairo", "Mumbai", "Beijing", "Dhaka", "Osaka", "New York", "Karachi", "Buenos Aires", "Istanbul", "Chongqing", "Kolkata", "Lagos", "Manila", "Rio de Janeiro", "Guangzhou"];
+// const CITIES = ["Tokyo"]; // Only fetch weather data for Tokyo
+const CITIES = ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico City", "Cairo", "Mumbai", "Beijing", "Dhaka", "Osaka", "New York", "Karachi", "Buenos Aires", "Istanbul", "Chongqing", "Kolkata", "Lagos", "Manila", "Rio de Janeiro", "Guangzhou"];
 const API_KEY = "iKMmPupoTWJP0ug3ahz18N0OcDNA35rh";
 
 async function fetchWeatherData() {
@@ -25,7 +25,7 @@ async function fetchWeatherData() {
     // Connect the client to the server
     await client.connect();
     const db = client.db("weatherDB");
-    const weatherCollection = db.collection("weathers");
+    const weatherCollection = db.collection("weathers_cities");
 
     // Fetch weather data for each city
     for (const city of CITIES) {
