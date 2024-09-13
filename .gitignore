@@ -28,4 +28,5 @@ yarn-error.log*
 
 #credentials
 
-/packages/backend/.env
+*.env
+packages/backend/.env
