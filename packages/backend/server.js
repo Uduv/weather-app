@@ -78,7 +78,7 @@ app.get('/api/weather', async (req, res) => {
   try {
     await client.connect();
     const db = client.db("weatherDB");
-    const weatherCollection = db.collection("weathers");
+    const weatherCollection = db.collection("weathers_cities");
     const weather = await weatherCollection.find().sort({ date: -1 }).limit(10).toArray();
     res.json(weather);
   } catch (error) {
