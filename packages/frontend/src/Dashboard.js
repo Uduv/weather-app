@@ -2,11 +2,7 @@ import React from 'react'
 
 export default function Dashboard() {
   return (
-    <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        margin: '60px',
-    }}>
+    <div>
     <iframe 
       title="Weather Dashboard"
       style={{background: '#21313C', border: 'none', borderRadius: '20px', boxShadow: '0 2px 10px 0 rgba(70, 76, 79, .2)', width: '95vw', height: '100vh'}} 

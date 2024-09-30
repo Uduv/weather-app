@@ -1,4 +1,6 @@
-// packages/frontend/src/App.js
+
+import './App.css';
+
 import React from 'react';
 import Weather from './Weather';
 import Dashboard from './Dashboard';

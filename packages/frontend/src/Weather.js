@@ -29,8 +29,11 @@ const Weather = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Weather Data</h1>
+    // Update the JSX to display the weather data and logs
+    <div 
+    style={{background: '#21313C', border: 'none', borderRadius: '20px', boxShadow: '0 2px 10px 0 rgba(70, 76, 79, .2)', width: '95vw', paddingBottom: '50px', marginBottom: '50px'}} 
+    >
+      <h1 className='Title'>Weather Data</h1>
       <ul>
         {weatherData.map((weather, index) => (
           <li key={index}>

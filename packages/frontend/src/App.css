@@ -1,10 +1,26 @@
 .App {
-  text-align: center;
+
+  display: 'flex';
+  justify-content: 'center';
+  margin: '60px';
+  padding : 1.6rem 2.4rem 1.6rem 2.4rem;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.Title, h2{
+  align-self: stretch;
+  -moz-column-gap: 2.4rem;
+  column-gap: 2.4rem;
+  color: #ffffff;
+  padding: 1.6rem 2.4rem;
+}
+
+* {
+  color: #F9FBFA;
 }
 
 @media (prefers-reduced-motion: no-preference) {
